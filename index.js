@@ -10,6 +10,16 @@ let notas = [
     id: 2,
     h: 'Segunda nota',
     b: 'Body da segunda nota'
+  },
+  {
+    id: 5,
+    h: 'Assistir matrix',
+    b: 'Pegar o bluray'
+  },
+  {
+    id: 7,
+    h: 'Comprar livro',
+    b: 'Clean code'
   }
 ]
 
@@ -47,3 +57,25 @@ const addNota = (headline, body) => {
 addNota('Ir ao mercado', 'Comprar azeite e arroz')
 
 mostraNotas();
+
+//
+const apagaNota = numID => {
+  let encontrado = false;
+  for (let obj of notas) {
+    if (obj.id === numID){
+      encontrado = true;
+      notas.splice(obj.id, 1);
+    }
+  }
+  if (encontrado){
+    console.log('Objeto excluído')
+  } else {
+    console.log('Objeto não encontrado, nada foi excluído')
+  }
+}
+
+apagaNota(1);
+
+//
+console.log(notas)
+
