@@ -1,36 +1,41 @@
-// hEADLINE, bODY, dATA
+// Ver se tem jeito melhor de o pin começar direto em "false" caso não seja marcado true
 
 let notas = [
   {
     id: 1,
     h: 'Primeira nota',
-    b: 'Aqui body da primeira'
+    b: 'Aqui body da primeira',
+    pin: false
   },
   {
     id: 2,
     h: 'Segunda nota',
-    b: 'Body da segunda nota'
+    b: 'Body da segunda nota',
+    pin: false
   },
   {
     id: 3,
     h: 'Ouvir música',
-    b: 'No player do spotify'
-
+    b: 'No player do spotify',
+    pin: true
   },
   {
     id: 5,
-    h: 'Assistir matrix',
-    b: 'Pegar o bluray'
+    h: 'Assistir Matrix',
+    b: 'Pegar o bluray',
+    pin: false
   },
   {
     id: 6,
     h: 'Ver série',
-    b: 'Pelo app da Netflix'
+    b: 'Pelo app da Netflix',
+    pin: false
   },
   {
     id: 7,
     h: 'Comprar livro',
-    b: 'Clean code'
+    b: 'Clean code',
+    pin: true
   }
 ]
 
@@ -60,22 +65,27 @@ const mostraHeadlines = () => {
 mostraHeadlines();
 
 //
-const addNota = (headline, body) => {
+const addNota = (headline, body, pinned) => {
+  let fixo = false;
+  if (pinned){
+    fixo = true
+  }
   let novaID = notas[notas.length - 1].id + 1 
-  notas.push({id: novaID, h: headline, b: body})
+  notas.push({id: novaID, h: headline, b: body, pin: fixo})
 }
 
-addNota('Ir ao mercado', 'Comprar azeite e arroz')
+addNota('Ir ao mercado', 'Comprar azeite e arroz', true)
 
 mostraNotas();
 
 //
-const apagaNota = numID => {
+/*
+const apagaNota = numID => { // Tá cagado, tá funcionando baseado no index, a partir do momento que apagar o primeiro, o resto vai zuar
 
   let encontrado = false;
   for (let obj of notas) {
     if (obj.id === numID){
-      console.log('aaaa', obj)
+      console.log('teste pra ver se chegou aqui', obj)
       encontrado = true;
       notas.splice(numID - 2, 1);
     }
@@ -86,9 +96,26 @@ const apagaNota = numID => {
     console.log(`Objeto com a ID ${numID} não foi encontrado, nada foi excluído.`)
   }
 }
+*/
 
+const apagaNota = numID => {
+  encontrado = false;
+  for (let i = 0; i < notas.length; i += 1) {
+    if (notas[i].id === numID) {
+      encontrado = true;
+      notas.splice(i, 1);
+    }
+  }
+  if (encontrado){
+    console.log(`Objeto com a ID ${numID} excluído.`)
+  } else {
+    console.log(`Objeto com a ID ${numID} não foi encontrado, nada foi excluído.`)
+  }
+}
 
 apagaNota(5);
+apagaNota(7);
 
-//
+
+
 console.log(notas)
