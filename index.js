@@ -12,9 +12,20 @@ let notas = [
     b: 'Body da segunda nota'
   },
   {
+    id: 3,
+    h: 'Ouvir música',
+    b: 'No player do spotify'
+
+  },
+  {
     id: 5,
     h: 'Assistir matrix',
     b: 'Pegar o bluray'
+  },
+  {
+    id: 6,
+    h: 'Ver série',
+    b: 'Pelo app da Netflix'
   },
   {
     id: 7,
@@ -60,22 +71,24 @@ mostraNotas();
 
 //
 const apagaNota = numID => {
+
   let encontrado = false;
   for (let obj of notas) {
     if (obj.id === numID){
+      console.log('aaaa', obj)
       encontrado = true;
-      notas.splice(obj.id, 1);
+      notas.splice(numID - 2, 1);
     }
   }
   if (encontrado){
-    console.log('Objeto excluído')
+    console.log(`Objeto com a ID ${numID} excluído.`)
   } else {
-    console.log('Objeto não encontrado, nada foi excluído')
+    console.log(`Objeto com a ID ${numID} não foi encontrado, nada foi excluído.`)
   }
 }
 
-apagaNota(1);
+
+apagaNota(5);
 
 //
 console.log(notas)
-
