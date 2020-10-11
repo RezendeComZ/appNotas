@@ -22,3 +22,13 @@ const mostraNotas = () => {
 }
 
 mostraNotas();
+
+const mostraHeadlines = () => {
+  for (let obj of notas){
+    console.log(obj.h);
+  }
+}
+
+console.log('Headlines:')
+
+mostraHeadlines();
