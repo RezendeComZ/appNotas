@@ -13,22 +13,20 @@ let notas = [
 
 const mostraNotas = () => {
   for (let obj of notas){ // For of para arrays e strings
-    console.log('-----');
+    console.log('- Notas completas:');
     for (let prop in obj) { // For in para objetos
       console.log(obj[prop]);
     }
   }
   console.log('-----');
 }
-
 mostraNotas();
 
 const mostraHeadlines = () => {
+  console.log('- Headlines:')
   for (let obj of notas){
     console.log(obj.h);
   }
 }
-
-console.log('Headlines:')
 
 mostraHeadlines();
