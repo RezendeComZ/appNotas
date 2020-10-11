@@ -13,6 +13,7 @@ let notas = [
   }
 ]
 
+//
 const mostraNotas = () => {
   console.log('- Notas completas:');
   for (let obj of notas){ // For of para arrays e strings
@@ -23,8 +24,9 @@ const mostraNotas = () => {
   }
   console.log('-----');
 }
-mostraNotas();
+// mostraNotas();
 
+//
 const mostraHeadlines = () => {
   console.log('- Headlines:')
   for (let obj of notas){
@@ -35,3 +37,13 @@ const mostraHeadlines = () => {
 }
 
 mostraHeadlines();
+
+//
+const addNota = (headline, body) => {
+  let novaID = notas[notas.length - 1].id + 1 
+  notas.push({id: novaID, h: headline, b: body})
+}
+
+addNota('Ir ao mercado', 'Comprar azeite e arroz')
+
+mostraNotas();
