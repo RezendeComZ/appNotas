@@ -122,4 +122,11 @@ const mostraFixos = () => {
 }
 mostraFixos();
 
-//
+// HTML
+const headField = document.querySelector('#headField');
+
+
+const btEnviar = () => {
+  addNota(headField.value)
+}
+

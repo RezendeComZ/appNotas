@@ -4,10 +4,25 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>App notas</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css"/>
+  <!-- <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet"/> -->
 </head>
 <body>
-  <div><h1>Hello World!</h1></div>
+  <div class="container">
+    <h2>Notas</h2>
+    <div class="inserir">
+      <p>Inserir nota:</p>
+      <input type="text" id='headField' placeholder="Insira a nota aqui">
+      <button onclick="btEnviar()">Enviar</button>
+    </div>
+    <div class="lista-notas">
+      <ul class='notas'></ul>
+    </div>
+
+
+
+  </div>
+  <script src='index.js'></script>  
   
 </body>
 </html>
