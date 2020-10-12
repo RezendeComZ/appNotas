@@ -5,7 +5,7 @@ let notas = [
     id: 1,
     h: 'Primeira nota',
     b: 'Aqui body da primeira',
-    pin: false
+    pin: false,
   },
   {
     id: 2,
@@ -80,7 +80,7 @@ mostraNotas();
 
 //
 /*
-const apagaNota = numID => { // Tá cagado, tá funcionando baseado no index, a partir do momento que apagar o primeiro, o resto vai zuar
+const apagaNota = numID => { // Não funciona ok, tá funcionando baseado no index, a partir do momento que apagar o primeiro, o resto vai zuar
 
   let encontrado = false;
   for (let obj of notas) {
@@ -120,6 +120,6 @@ apagaNota(7);
 const mostraFixos = () => {
   console.log(notas.filter(prop => {return prop.pin === true}))
 }
-console.log(notas)
-
 mostraFixos();
+
+//
