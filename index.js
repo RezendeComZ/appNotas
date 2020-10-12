@@ -116,6 +116,10 @@ const apagaNota = numID => {
 apagaNota(5);
 apagaNota(7);
 
-
-
+//
+const mostraFixos = () => {
+  console.log(notas.filter(prop => {return prop.pin === true}))
+}
 console.log(notas)
+
+mostraFixos();
