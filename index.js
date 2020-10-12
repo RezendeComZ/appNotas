@@ -72,6 +72,7 @@ const addNota = (headline, body, pinned) => {
   }
   let novaID = notas[notas.length - 1].id + 1 
   notas.push({id: novaID, h: headline, b: body, pin: fixo})
+  return notas[notas.length - 1]
 }
 
 addNota('Ir ao mercado', 'Comprar azeite e arroz', true)
@@ -128,7 +129,6 @@ const fixo = document.querySelector('#fixo');
 
 
 const btEnviar = () => {
-  addNota(headField.value,'vazio',fixo.checked)
-  console.log(fixo.checked)
+  console.log(addNota(headField.value,'',fixo.checked))
 }
 

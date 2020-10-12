@@ -12,9 +12,11 @@
     <h2>Notas</h2>
     <div class="inserir">
       <p>Inserir nota:</p>
-      <input type="text" id='headField' placeholder="Insira a nota aqui">
+      <input type="text" id='headField' size="27" placeholder="Insira a nota aqui">
       <input type="checkbox" id='fixo' name="fixo" value="true"><label for="fixo">Fixar</label>
       <button onclick="btEnviar()">Enviar</button>
+      <br/>
+      <textarea type="text" id="bodyField" cols="40" rows="5" placeholder="Opcional"></textarea> <!-- A altenativa a cols e rows é: style="width:250px;height:150px;" -->
     </div>
     <div class="lista-notas">
       <ul class='notas'></ul>
