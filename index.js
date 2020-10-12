@@ -124,9 +124,11 @@ mostraFixos();
 
 // HTML
 const headField = document.querySelector('#headField');
+const fixo = document.querySelector('#fixo');
 
 
 const btEnviar = () => {
-  addNota(headField.value)
+  addNota(headField.value,'vazio',fixo.checked)
+  console.log(fixo.checked)
 }
 
