@@ -1,4 +1,5 @@
-// Ver se tem jeito melhor de o pin começar direto em "false" caso não seja marcado true
+// Quando abrir ou depois de uma ação, deixar o campo de texto principal pronto para o input (selecionado)
+// enter para enviar
 
 let notas = [
   {
@@ -125,10 +126,11 @@ mostraFixos();
 
 // HTML
 const headField = document.querySelector('#headField');
+const bodyField = document.querySelector('#bodyField')
 const fixo = document.querySelector('#fixo');
 
 
 const btEnviar = () => {
-  console.log(addNota(headField.value,'',fixo.checked))
+  console.log(addNota(headField.value,bodyField.value,fixo.checked))
 }
 
