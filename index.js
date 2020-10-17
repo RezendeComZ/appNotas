@@ -131,6 +131,22 @@ mostraFixos();
 const headField = document.querySelector('#headField');
 const bodyField = document.querySelector('#bodyField')
 const fixo = document.querySelector('#fixo');
+const exibeNotas = () => {
+  let lista = 'Notas:'
+  for (let obj of notas) {
+    lista += '</br>'
+    // console.log(obj)
+    for (let prop in obj) {
+      lista += obj[prop] + ' '
+      // console.log(obj[prop])
+    }
+  }
+  // console.log(lista)
+  return lista
+
+}
+
+exibeNotas()
 
 const btEnviar = () => {
   console.log(addNota(headField.value,bodyField.value,fixo.checked));
@@ -138,4 +154,4 @@ const btEnviar = () => {
 }
 
 
-document.getElementById('listaNotas').innerHTML = notas[0].h + '</br>' +  notas[0].b
+document.getElementById('listaNotas').innerHTML = exibeNotas()
