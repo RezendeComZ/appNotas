@@ -9,7 +9,7 @@ let notas = [
     id: 1,
     h: 'Primeira nota',
     b: 'Aqui body da primeira',
-    pin: false,
+    pin: false
   },
   {
     id: 2,
@@ -133,6 +133,9 @@ const bodyField = document.querySelector('#bodyField')
 const fixo = document.querySelector('#fixo');
 
 const btEnviar = () => {
-  console.log(addNota(headField.value,bodyField.value,fixo.checked))
+  console.log(addNota(headField.value,bodyField.value,fixo.checked));
+  alert('Item adicionado')
 }
 
+
+document.getElementById('listaNotas').innerHTML = notas[0].h + '</br>' +  notas[0].b
