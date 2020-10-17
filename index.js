@@ -149,8 +149,20 @@ const exibeNotas = () => {
 exibeNotas()
 
 const btEnviar = () => {
-  console.log(addNota(headField.value,bodyField.value,fixo.checked));
-  alert('Item adicionado')
+  if (headField.value === '' && bodyField.value === '') {
+    alert('Preencha ao menos um campo')
+  } else {
+    alert('Item adicionado')
+    console.log(addNota(headField.value,bodyField.value,fixo.checked));
+
+  }
+  exibeNotas()
+  if (headField.value === '' && bodyField.value === '') {
+    alert('Preencha ao menos um campo')
+  } else {
+    alert('Item adicionado')
+
+  }
 }
 
 
