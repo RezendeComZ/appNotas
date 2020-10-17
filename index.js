@@ -1,5 +1,8 @@
 // Quando abrir ou depois de uma ação, deixar o campo de texto principal pronto para o input (selecionado)
-// enter para enviar
+// enter para enviar nos campos head e body
+// Adicionar cores
+// git clone
+// datas usando o módulo moment do npm
 
 let notas = [
   {
@@ -128,7 +131,6 @@ mostraFixos();
 const headField = document.querySelector('#headField');
 const bodyField = document.querySelector('#bodyField')
 const fixo = document.querySelector('#fixo');
-
 
 const btEnviar = () => {
   console.log(addNota(headField.value,bodyField.value,fixo.checked))
