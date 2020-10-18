@@ -142,7 +142,11 @@ const exibeNotas = () => {
     }
   }
   // console.log(lista)
-  return lista
+  return document.getElementById('listaNotas').innerHTML = lista
+}
+
+const exibeEmBloco = (elem) => {
+
 }
 
 const btEnviar = () => {
@@ -151,10 +155,9 @@ const btEnviar = () => {
   } else {
     alert('Item adicionado')
     addNota(headField.value,bodyField.value,fixo.checked);
-    document.getElementById('listaNotas').innerHTML = exibeNotas()
   }
-  exibeNotas()
+  exibeNotas() // atualiza
 }
 
 
-document.getElementById('listaNotas').innerHTML = exibeNotas()
+exibeNotas() // document.getElementById('listaNotas').innerHTML = exibeNotas()
