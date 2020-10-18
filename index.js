@@ -50,29 +50,6 @@ let notas = [
   }
 ]
 
-const mostraNotas = () => {
-  console.log('- Notas completas:');
-  for (let obj of notas){ // For of para arrays e strings
-    console.log('-----');
-    for (let prop in obj) { // For in para objetos
-      console.log(obj[prop]);
-    }
-  }
-  console.log('-----');
-}
-
-const mostraHeadlines = () => {
-  console.log('- Headlines:')
-  for (let obj of notas){
-    console.log('-----');
-    console.log(obj.h);
-  }
-  console.log('-----');
-}
-
-mostraHeadlines();
-
-//
 const addNota = (headline, body, pinned) => {
   let fixo = false;
   if (pinned){
@@ -84,8 +61,6 @@ const addNota = (headline, body, pinned) => {
 }
 
 addNota('Ir ao mercado', 'Comprar azeite e arroz', true)
-
-mostraNotas();
 
 const apagaNota = numID => {
   encontrado = false;
@@ -104,12 +79,6 @@ const apagaNota = numID => {
 
 apagaNota(5);
 apagaNota(7);
-
-//
-const mostraFixos = () => {
-  console.log(notas.filter(prop => {return prop.pin === true}))
-}
-mostraFixos();
 
 // HTML:
 const headField = document.querySelector('#headField');
