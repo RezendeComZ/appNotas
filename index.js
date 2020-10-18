@@ -143,7 +143,6 @@ const exibeNotas = () => {
   }
   // console.log(lista)
   return lista
-
 }
 
 const btEnviar = () => {
@@ -151,9 +150,8 @@ const btEnviar = () => {
     alert('Preencha ao menos um campo')
   } else {
     alert('Item adicionado')
-    console.log(addNota(headField.value,bodyField.value,fixo.checked));
+    addNota(headField.value,bodyField.value,fixo.checked);
     document.getElementById('listaNotas').innerHTML = exibeNotas()
-
   }
   exibeNotas()
 }
