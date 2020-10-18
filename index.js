@@ -132,7 +132,7 @@ const headField = document.querySelector('#headField');
 const bodyField = document.querySelector('#bodyField')
 const fixo = document.querySelector('#fixo');
 const exibeEmBloco = (reg, headline, body, pinned) => { // vai ser o div de cada item
-  let div = `<div class=postit pin${pinned}>`;
+  let div = `<div class="postit pin${pinned}">`;
 
   div += `<div> <h6>${reg}</h6> <h3>${headline}</h3> </div>`;
   div += '</br>'
