@@ -48,7 +48,7 @@ let notas = [
     b: 'e usar nesse mesmo projeto',
     pin: false
   }
-]
+];
 
 const addNota = (headline, body, pinned) => {
   let fixo = false;
@@ -71,6 +71,7 @@ const apagaNota = numID => {
     }
   }
   if (encontrado){
+    /// alert(`Objeto com a ID ${numID} excluído.`)
     console.log(`Objeto com a ID ${numID} excluído.`)
   } else {
     console.log(`Objeto com a ID ${numID} não foi encontrado, nada foi excluído.`)
