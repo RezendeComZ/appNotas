@@ -1,5 +1,17 @@
+#listaNotas {
+  background-color: green;
+  display:flex;
+  flex-wrap: wrap;
+}
 .postit {
   background-color: bisque;
+  height: auto;
+  width: 300px;
+  margin: 5px;
+  padding: 10px;
+}
+.postit h6{
+  color:gray
 }
 .pintrue {
   background-color: gold
