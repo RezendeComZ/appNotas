@@ -146,23 +146,16 @@ const exibeNotas = () => {
 
 }
 
-exibeNotas()
-
 const btEnviar = () => {
   if (headField.value === '' && bodyField.value === '') {
     alert('Preencha ao menos um campo')
   } else {
     alert('Item adicionado')
     console.log(addNota(headField.value,bodyField.value,fixo.checked));
+    document.getElementById('listaNotas').innerHTML = exibeNotas()
 
   }
   exibeNotas()
-  if (headField.value === '' && bodyField.value === '') {
-    alert('Preencha ao menos um campo')
-  } else {
-    alert('Item adicionado')
-
-  }
 }
 
 
