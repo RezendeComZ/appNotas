@@ -5,6 +5,7 @@
 // converter numero ID para superscript usando o 'npm superscript-number'
 // notas em um JSON externo
 // Quando enviar um fixo, deselecionar a checkbox fixo em seguida
+// Se estiver sem notas mostrar que não tem notas, vi que da pra usar o isEmptyObject() do jQuerry, mas deve da pra implementar algo sem ele
 
 let notas = [
   {
@@ -51,14 +52,21 @@ let notas = [
   }
 ];
 
+
+let proximaID;
+if (typeof notas[0] === 'undefined'){
+  proximaID = 1
+} else {
+  proximaID = notas[notas.length - 1].id + 1;
+}
+
 const addNota = (headline, body, pinned) => {
   let fixo = false;
   if (pinned){
-    fixo = true
+    fixo = true  // testar dps fixo = pinned no lugar desse if
   }
-  let novaID = notas[notas.length - 1].id + 1 
-  notas.push({id: novaID, h: headline, b: body, pin: fixo})
-  return notas[notas.length - 1]
+  notas.push({id: proximaID, h: headline, b: body, pin: fixo})
+  proximaID += 1;
 }
 
 addNota('Ir ao mercado', 'Comprar azeite e arroz', true)
@@ -80,7 +88,6 @@ const apagaNota = numID => {
 }
 
 apagaNota(5);
-apagaNota(7);
 
 // HTML:
 const headField = document.querySelector('#headField');
@@ -99,6 +106,9 @@ const exibeEmBloco = (reg, headline, body, pinned) => { // div de cada item
 
 const exibeNotas = () => {
   let lista = '';
+  if (typeof notas[0] === 'undefined') {
+    lista += '<p>Você não tem notas</p>'
+  }
   for (let obj of notas) {
     lista += exibeEmBloco(obj.id, obj.h, obj.b, obj.pin)
   }
@@ -115,6 +125,7 @@ const btEnviar = () => {
   } else {
     alert('Item adicionado')
     addNota(headField.value,bodyField.value,fixo.checked);
+
   }
   exibeNotas() // atualiza
 }
