@@ -4,6 +4,7 @@
 // datas usando o módulo moment do npm
 // converter numero ID para superscript usando o 'npm superscript-number'
 // notas em um JSON externo
+// Quando enviar um fixo, deselecionar a checkbox fixo em seguida
 
 let notas = [
   {
@@ -90,6 +91,7 @@ const exibeEmBloco = (reg, headline, body, pinned) => { // div de cada item
   div += `<div> <h6>${reg}</h6> <h3>${headline}</h3> </div>`;
   div += '</br>'
   div += `<div><p>${body}</p></div>`;  
+  div += `<button onclick="btApagar(${reg})">X</button>`
   div += '</div>'
 
   return div
@@ -101,6 +103,10 @@ const exibeNotas = () => {
     lista += exibeEmBloco(obj.id, obj.h, obj.b, obj.pin)
   }
   return document.getElementById('listaNotas').innerHTML = lista
+}
+const btApagar = id => {
+  apagaNota(id);
+  exibeNotas();
 }
 
 const btEnviar = () => {
