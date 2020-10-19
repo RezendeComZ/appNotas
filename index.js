@@ -6,6 +6,7 @@
 // notas em um JSON externo
 // Quando enviar um fixo, deselecionar a checkbox fixo em seguida
 // Se estiver sem notas mostrar que não tem notas, vi que da pra usar o isEmptyObject() do jQuerry, mas deve da pra implementar algo sem ele
+// Se add e encontrar uma nota duplicada avisar e não adicionar
 
 let notas = [
   {
@@ -49,6 +50,11 @@ let notas = [
     h: 'Aprender a usar JSON',
     b: 'e usar nesse mesmo projeto',
     pin: false
+  },
+  {
+    id: 9,
+    h: 'Mais uma nova coisa',
+    b: 'um outro item'    
   }
 ];
 
