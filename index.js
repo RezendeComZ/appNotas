@@ -4,7 +4,6 @@
 // datas usando o módulo moment do npm
 // converter numero ID para superscript usando o 'npm superscript-number'
 // notas em um JSON externo
-// Quando enviar um fixo, deselecionar a checkbox fixo em seguida
 // Se estiver sem notas mostrar que não tem notas, vi que da pra usar o isEmptyObject() do jQuerry, mas deve da pra implementar algo sem ele
 // Se add e encontrar uma nota duplicada avisar e não adicionar
 // poder trocar de tema
@@ -134,7 +133,7 @@ const btEnviar = () => {
   } else {
     alert('Item adicionado')
     addNota(headField.value,bodyField.value,fixo.checked);
-
+    document.getElementById("fixo").checked = false;
   }
   exibeNotas() // atualiza
 }
