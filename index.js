@@ -8,7 +8,6 @@
 // busca
 // poder trocar de tema
 // fazer um layout separado caso só tenha headline
-// Separar fixos
 
 let notas = [
   {
@@ -101,26 +100,41 @@ apagaNota(5);
 const headField = document.querySelector('#headField');
 const bodyField = document.querySelector('#bodyField')
 const fixo = document.querySelector('#fixo');
-const exibeEmBloco = (reg, headline, body, pinned) => { // div de cada item
-  let div = `<div class="postit pin${pinned}">`;
-  div += `<div> <h6>${reg}</h6> <h3>${headline}</h3> </div>`;
-  div += '</br>'
-  div += `<div><p>${body}</p></div>`;  
-  div += `<button onclick="btApagar(${reg})">X</button>`
-  div += '</div>'
-
-  return div
+let postsFixos = '';
+let postsNaoFixos = '';
+const separador = () => {
+  if (postsFixos !== '' && postsNaoFixos !== '') {
+    return '<div>Teste de separador</div>'
+  }
+}
+const processaBloco = (reg, headline, body, pinned) => { // div de cada item
+  if (pinned) {
+    postsFixos += `<div class="postit pin${pinned}">`;
+    postsFixos += `<div> <h6>${reg}</h6> <h3>${headline}</h3> </div>`;
+    postsFixos += '</br>'
+    postsFixos += `<div><p>${body}</p></div>`;  
+    postsFixos += `<button onclick="btApagar(${reg})">X</button>`
+    postsFixos += '</div>'
+  } else {
+    postsNaoFixos += `<div class="postit pin${pinned}">`;
+    postsNaoFixos += `<div> <h6>${reg}</h6> <h3>${headline}</h3> </div>`;
+    postsNaoFixos += '</br>'
+    postsNaoFixos += `<div><p>${body}</p></div>`;  
+    postsNaoFixos += `<button onclick="btApagar(${reg})">X</button>`
+    postsNaoFixos += '</div>'
+  }
 }
 
 const exibeNotas = () => {
-  let lista = '';
+  postsNaoFixos = ''
+  postsFixos = '';
   if (typeof notas[0] === 'undefined') {
-    lista += '<p>Você não tem notas</p>'
+    return document.getElementById('listaNotas').innerHTML = '<p>Você não tem notas</p>'
   }
-  for (let obj of notas) {
-    lista += exibeEmBloco(obj.id, obj.h, obj.b, obj.pin)
+  for (let obj of notas) {    
+    processaBloco(obj.id, obj.h, obj.b, obj.pin);
   }
-  return document.getElementById('listaNotas').innerHTML = lista
+  return document.getElementById('listaNotas').innerHTML = postsFixos + separador() + postsNaoFixos
 }
 const btApagar = id => {
   apagaNota(id);
