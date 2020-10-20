@@ -7,6 +7,7 @@
 // Quando enviar um fixo, deselecionar a checkbox fixo em seguida
 // Se estiver sem notas mostrar que não tem notas, vi que da pra usar o isEmptyObject() do jQuerry, mas deve da pra implementar algo sem ele
 // Se add e encontrar uma nota duplicada avisar e não adicionar
+// testando adicionar esse texto pelo github
 
 let notas = [
   {
