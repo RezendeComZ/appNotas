@@ -1,3 +1,4 @@
+// Fazer uma function pra simplificar a processaBloco()
 // Quando abrir ou depois de uma ação, deixar o campo de texto principal pronto para o input (selecionado)
 // enter para enviar nos campos head e body
 // Adicionar cores
