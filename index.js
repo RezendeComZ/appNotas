@@ -103,13 +103,17 @@ const bodyField = document.querySelector('#bodyField')
 const fixo = document.querySelector('#fixo');
 let postsFixos = '';
 let postsNaoFixos = '';
-const separador = () => {
-  if (postsFixos !== '' && postsNaoFixos !== '') {
-    return '<div>Teste de separador</div>'
-  }
-}
 const processaBloco = (reg, headline, body, pinned) => { // div de cada item
+  const geraCompleto = (elem) => { // NÃO FUNCIONA AINDA
+    elem += `<div class="postit pin${pinned}">`;
+    elem += `<div> <h6>${reg}</h6> <h3>${headline}</h3> </div>`;
+    elem += '</br>'
+    elem += `<div><p>${body}</p></div>`;  
+    elem += `<button onclick="btApagar(${reg})">X</button>`
+    elem += '</div>'
+  }
   if (pinned) {
+    // geraCompleto(postsFixos);
     postsFixos += `<div class="postit pin${pinned}">`;
     postsFixos += `<div> <h6>${reg}</h6> <h3>${headline}</h3> </div>`;
     postsFixos += '</br>'
@@ -117,6 +121,7 @@ const processaBloco = (reg, headline, body, pinned) => { // div de cada item
     postsFixos += `<button onclick="btApagar(${reg})">X</button>`
     postsFixos += '</div>'
   } else {
+    // geraCompleto(postsNaoFixos);
     postsNaoFixos += `<div class="postit pin${pinned}">`;
     postsNaoFixos += `<div> <h6>${reg}</h6> <h3>${headline}</h3> </div>`;
     postsNaoFixos += '</br>'
@@ -130,12 +135,13 @@ const exibeNotas = () => {
   postsNaoFixos = ''
   postsFixos = '';
   if (typeof notas[0] === 'undefined') {
-    return document.getElementById('listaNotas').innerHTML = '<p>Você não tem notas</p>'
+    return document.querySelector('.listaNotas').innerHTML = '<p>Você não tem notas</p>'
   }
   for (let obj of notas) {    
     processaBloco(obj.id, obj.h, obj.b, obj.pin);
   }
-  return document.getElementById('listaNotas').innerHTML = postsFixos + separador() + postsNaoFixos
+  document.querySelector('.fixo').innerHTML = postsFixos
+  document.querySelector('.naoFixo').innerHTML = postsNaoFixos
 }
 const btApagar = id => {
   apagaNota(id);
@@ -149,6 +155,7 @@ const btEnviar = () => {
     alert('Item adicionado')
     addNota(headField.value,bodyField.value,fixo.checked);
     document.getElementById("fixo").checked = false;
+    console.log(postsFixos)
   }
   exibeNotas() // atualiza
 }

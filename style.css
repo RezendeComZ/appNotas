@@ -8,11 +8,25 @@ input[type="text"], textarea {
   background-color : #d1d1d1; 
 
 }
+hr.rounded {
+  border-top: 1px solid #d1d1d1;
+  border-radius: 1px;
+}
 
-#listaNotas {
+.notas {
   display:flex;
   flex-wrap: wrap;
 }
+.fixo {
+  display:flex;
+  flex-wrap: wrap;
+}
+.naoFixo {
+  display:flex;
+  flex-wrap: wrap;
+}
+
+
 .postit {
   border: 1px solid gray;
   border-radius: 10px;
