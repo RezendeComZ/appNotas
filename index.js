@@ -103,31 +103,20 @@ const bodyField = document.querySelector('#bodyField')
 const fixo = document.querySelector('#fixo');
 let postsFixos = '';
 let postsNaoFixos = '';
+let posts = {'fixos': '','naoFixos':''};
+
 const processaBloco = (reg, headline, body, pinned) => { // div de cada item
-  const geraCompleto = (elem) => { // NÃO FUNCIONA AINDA
-    elem += `<div class="postit pin${pinned}">`;
-    elem += `<div> <h6>${reg}</h6> <h3>${headline}</h3> </div>`;
-    elem += '</br>'
-    elem += `<div><p>${body}</p></div>`;  
-    elem += `<button onclick="btApagar(${reg})">X</button>`
-    elem += '</div>'
+  const geraCompleto = (prop) => {
+    posts[prop] += `<div class="postit pin${pinned}">`;
+    posts[prop] += `<div> <h6>${reg}</h6> <h3>${headline}</h3> </div>`;
+    posts[prop] += '</br>'
+    posts[prop] += `<div><p>${body}</p></div>`;  
+    posts[prop] += `<button onclick="btApagar(${reg})">X</button></div>`
   }
   if (pinned) {
-    // geraCompleto(postsFixos);
-    postsFixos += `<div class="postit pin${pinned}">`;
-    postsFixos += `<div> <h6>${reg}</h6> <h3>${headline}</h3> </div>`;
-    postsFixos += '</br>'
-    postsFixos += `<div><p>${body}</p></div>`;  
-    postsFixos += `<button onclick="btApagar(${reg})">X</button>`
-    postsFixos += '</div>'
+    geraCompleto('fixos');
   } else {
-    // geraCompleto(postsNaoFixos);
-    postsNaoFixos += `<div class="postit pin${pinned}">`;
-    postsNaoFixos += `<div> <h6>${reg}</h6> <h3>${headline}</h3> </div>`;
-    postsNaoFixos += '</br>'
-    postsNaoFixos += `<div><p>${body}</p></div>`;  
-    postsNaoFixos += `<button onclick="btApagar(${reg})">X</button>`
-    postsNaoFixos += '</div>'
+    geraCompleto('naoFixos')
   }
 }
 
@@ -140,8 +129,9 @@ const exibeNotas = () => {
   for (let obj of notas) {    
     processaBloco(obj.id, obj.h, obj.b, obj.pin);
   }
-  document.querySelector('.fixo').innerHTML = postsFixos
-  document.querySelector('.naoFixo').innerHTML = postsNaoFixos
+  document.querySelector('.fixo').innerHTML = posts.fixos
+  document.querySelector('.naoFixo').innerHTML = posts.naoFixos
+  console.log(posts)
 }
 const btApagar = id => {
   apagaNota(id);
