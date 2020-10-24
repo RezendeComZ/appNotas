@@ -1,4 +1,3 @@
-// Fazer uma function pra simplificar a processaBloco()
 // Quando abrir ou depois de uma ação, deixar o campo de texto principal pronto para o input (selecionado)
 // enter para enviar nos campos head e body
 // Adicionar cores
@@ -8,7 +7,7 @@
 // Se add e encontrar uma nota duplicada avisar e não adicionar
 // busca
 // poder trocar de tema
-// fazer um layout separado caso só tenha headline
+// fazer um layout separado caso só tenha headline/body
 
 let notas = [
   {
@@ -92,23 +91,23 @@ const headField = document.querySelector('#headField');
 const bodyField = document.querySelector('#bodyField')
 const fixo = document.querySelector('#fixo');
 let posts = {'fixos': '','naoFixos':''};
+
 const processaBloco = (reg, headline, body, pinned) => { // div de cada item  
-  
   const geraCompleto = prop => {
-    posts[prop] += `<div class="postit pin${pinned}">`;
-    posts[prop] += `<div> <h6>${reg}</h6> <h3>${headline}</h3> </div>`;
-    posts[prop] += '</br>'
-    posts[prop] += `<div><p>${body}</p></div>`;  
-    posts[prop] += `<button onclick="btApagar(${reg})">X</button></div>`
+    posts[prop] +=
+    `<div class="postit pin${pinned}">
+    <div> <h6>${reg}</h6> <h3>${headline}</h3> </div>
+    </br>
+    <div><p>${body}</p></div>
+    <button onclick="btApagar(${reg})">X</button></div>`;
   }
   const geraParcial = prop => {
-    posts[prop] += `<div class="postit pin${pinned}">`;
-    posts[prop] += `<div> <h6>parcial${reg}</h6> <h3>${headline}</h3> </div>`;
-    posts[prop] += '</br>'
-    posts[prop] += `<div><p>${body}</p></div>`;  
-    posts[prop] += `<button onclick="btApagar(${reg})">X</button></div>`    
+    posts[prop] +=
+    `<div class="postit pin${pinned}">
+    <div> <h6>${reg}</h6> <h3>${headline}${body}</h3> </div>
+    </br>
+    <button onclick="btApagar(${reg})">X</button></div>`;  
   }
-
   if (headline !== '' && body !== '') {
     if (pinned) {
       geraCompleto('fixos');
