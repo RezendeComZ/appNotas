@@ -1,5 +1,4 @@
 // Quando abrir ou depois de uma ação, deixar o campo de texto principal pronto para o input (selecionado)
-// enter para enviar nos campos head e body
 // Adicionar cores
 // datas usando o módulo moment do npm
 // converter numero ID para superscript usando o 'npm superscript-number'
@@ -7,7 +6,6 @@
 // Se add e encontrar uma nota duplicada avisar e não adicionar
 // busca
 // poder trocar de tema
-// fazer um layout separado caso só tenha headline/body
 
 let notas = [
   {
@@ -91,6 +89,16 @@ const headField = document.querySelector('#headField');
 const bodyField = document.querySelector('#bodyField')
 const fixo = document.querySelector('#fixo');
 let posts = {'fixos': '','naoFixos':''};
+const deuEnter = () => {
+  if (event.keyCode == 13) {
+    btEnviar();
+}
+}
+
+const deuCtrlEnter = (e) => {
+  let evento = window.event? event : e
+  if (evento.keyCode == 13 && evento.ctrlKey) btEnviar();
+}
 
 const processaBloco = (reg, headline, body, pinned) => { // div de cada item  
   const geraCompleto = prop => {
@@ -133,7 +141,6 @@ const exibeNotas = () => {
   }
   document.querySelector('.fixo').innerHTML = posts.fixos
   document.querySelector('.naoFixo').innerHTML = posts.naoFixos
-  console.log(posts)
 }
 const btApagar = id => {
   apagaNota(id);
