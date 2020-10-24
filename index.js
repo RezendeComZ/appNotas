@@ -90,14 +90,11 @@ const bodyField = document.querySelector('#bodyField')
 const fixo = document.querySelector('#fixo');
 let posts = {'fixos': '','naoFixos':''};
 const deuEnter = () => {
-  if (event.keyCode == 13) {
-    btEnviar();
+  if (event.keyCode === 13) btEnviar();
 }
-}
-
 const deuCtrlEnter = (e) => {
-  let evento = window.event? event : e
-  if (evento.keyCode == 13 && evento.ctrlKey) btEnviar();
+  if (event.keyCode === 13 && event.ctrlKey) btEnviar();
+  if (event.keyCode === 13 && event.metaKey) btEnviar(); /// via CMD
 }
 
 const processaBloco = (reg, headline, body, pinned) => { // div de cada item  
