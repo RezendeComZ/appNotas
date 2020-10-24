@@ -60,7 +60,6 @@ let notas = [
   }
 ];
 
-
 let proximaID;
 if (typeof notas[0] === 'undefined'){
   proximaID = 1
@@ -77,52 +76,56 @@ const addNota = (headline, body, pinned) => {
   proximaID += 1;
 }
 
-addNota('Ir ao mercado', 'Comprar azeite e arroz', true)
-
 const apagaNota = numID => {
   encontrado = false;
   for (let i = 0; i < notas.length; i += 1) {
     if (notas[i].id === numID) {
       encontrado = true;
       notas.splice(i, 1);
+      alert(`Objeto com a ID ${numID} excluído.`)
     }
   }
-  if (encontrado){
-    /// alert(`Objeto com a ID ${numID} excluído.`)
-    console.log(`Objeto com a ID ${numID} excluído.`)
-  } else {
-    console.log(`Objeto com a ID ${numID} não foi encontrado, nada foi excluído.`)
-  }
 }
-
-apagaNota(5);
 
 // HTML:
 const headField = document.querySelector('#headField');
 const bodyField = document.querySelector('#bodyField')
 const fixo = document.querySelector('#fixo');
-let postsFixos = '';
-let postsNaoFixos = '';
 let posts = {'fixos': '','naoFixos':''};
-
-const processaBloco = (reg, headline, body, pinned) => { // div de cada item
-  const geraCompleto = (prop) => {
+const processaBloco = (reg, headline, body, pinned) => { // div de cada item  
+  
+  const geraCompleto = prop => {
     posts[prop] += `<div class="postit pin${pinned}">`;
     posts[prop] += `<div> <h6>${reg}</h6> <h3>${headline}</h3> </div>`;
     posts[prop] += '</br>'
     posts[prop] += `<div><p>${body}</p></div>`;  
     posts[prop] += `<button onclick="btApagar(${reg})">X</button></div>`
   }
-  if (pinned) {
-    geraCompleto('fixos');
-  } else {
-    geraCompleto('naoFixos')
+  const geraParcial = prop => {
+    posts[prop] += `<div class="postit pin${pinned}">`;
+    posts[prop] += `<div> <h6>parcial${reg}</h6> <h3>${headline}</h3> </div>`;
+    posts[prop] += '</br>'
+    posts[prop] += `<div><p>${body}</p></div>`;  
+    posts[prop] += `<button onclick="btApagar(${reg})">X</button></div>`    
   }
+
+  if (headline !== '' && body !== '') {
+    if (pinned) {
+      geraCompleto('fixos');
+    } else {
+      geraCompleto('naoFixos')
+    }
+  } else {
+    if (pinned) {
+      geraParcial('fixos');
+    } else {
+      geraParcial('naoFixos')
+    }
+  }   
 }
 
 const exibeNotas = () => {
-  postsNaoFixos = ''
-  postsFixos = '';
+  posts = {'fixos': '','naoFixos':''};
   if (typeof notas[0] === 'undefined') {
     return document.querySelector('.listaNotas').innerHTML = '<p>Você não tem notas</p>'
   }
@@ -145,9 +148,8 @@ const btEnviar = () => {
     alert('Item adicionado')
     addNota(headField.value,bodyField.value,fixo.checked);
     document.getElementById("fixo").checked = false;
-    console.log(postsFixos)
   }
   exibeNotas() // atualiza
 }
 
-exibeNotas()
+exibeNotas();
