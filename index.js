@@ -92,7 +92,7 @@ let posts = {'fixos': '','naoFixos':''};
 const deuEnter = () => {
   if (event.keyCode === 13) btEnviar();
 }
-const deuCtrlEnter = (e) => {
+const deuCtrlEnter = () => {
   if (event.keyCode === 13 && event.ctrlKey) btEnviar();
   if (event.keyCode === 13 && event.metaKey) btEnviar(); /// via CMD
 }
