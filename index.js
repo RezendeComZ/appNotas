@@ -1,3 +1,6 @@
+// Adicionar via link usando parametros do express /:nota/:body?/:fixo? // query params
+// Rodar no Node e o Banco de dados ficar em um JSON que o Node acessa via FTP no servidor. Seria possível ser https://ga.brielrezen.de:3000/appNotas ? E o JSON ser acessível pelo Node via FTP
+// Modularizar (dividir em js)
 // Quando abrir ou depois de uma ação, deixar o campo de texto principal pronto para o input (selecionado)
 // Adicionar cores
 // datas usando o módulo moment do npm
@@ -6,7 +9,10 @@
 // Se add e encontrar uma nota duplicada avisar e não adicionar
 // busca
 // poder trocar de tema
-
+// Usar o setTimeout() // É um método de window, window.setTimeout // Não precisa chamar windows, pq no navegador windows é o objeto GLOBAL
+// senha
+// login
+// cadastro
 let notas = [
   {
     id: 1,
@@ -56,6 +62,8 @@ let notas = [
     b: 'um outro item'    
   }
 ];
+
+console.log(notas)
 
 let proximaID;
 if (typeof notas[0] === 'undefined'){
