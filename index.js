@@ -1,4 +1,5 @@
 // Trocar 'alert()' por mensagem com display:none
+// não mostrar a barra se não tiver post fixo
 // Adicionar via link usando parametros do express /:nota/:body?/:fixo? // query params
 // Rodar no Node e o Banco de dados ficar em um JSON que o Node acessa via FTP no servidor. Seria possível ser https://ga.brielrezen.de:3000/appNotas ? E o JSON ser acessível pelo Node via FTP
 // Modularizar (dividir em js)
@@ -63,8 +64,6 @@ let notas = [
     b: 'um outro item'    
   }
 ];
-
-console.log(notas)
 
 let proximaID;
 if (typeof notas[0] === 'undefined'){
@@ -160,8 +159,17 @@ const btEnviar = () => {
     alert('Item adicionado')
     addNota(headField.value,bodyField.value,fixo.checked);
     document.getElementById("fixo").checked = false;
+    escondeInserir()
   }
   exibeNotas() // atualiza
 }
 
 exibeNotas();
+
+const mostraInserir = () => {
+  document.querySelector('.inserir').style.display = 'block';
+}
+
+const escondeInserir = () => {
+  document.querySelector('.inserir').style.display = 'none'
+}
