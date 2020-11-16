@@ -1,3 +1,4 @@
+// Trocar 'alert()' por mensagem com display:none
 // Adicionar via link usando parametros do express /:nota/:body?/:fixo? // query params
 // Rodar no Node e o Banco de dados ficar em um JSON que o Node acessa via FTP no servidor. Seria possível ser https://ga.brielrezen.de:3000/appNotas ? E o JSON ser acessível pelo Node via FTP
 // Modularizar (dividir em js)

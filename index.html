@@ -9,15 +9,18 @@
 </head>
 <body>
   <div class="container">
-    <h2>Notas</h2>
     <div class="inserir">
-      <p>Inserir nota:</p>
-      <input type="text" id='headField' size="27" placeholder="Insira a nota aqui (Enter para enviar)" onkeypress="deuEnter()">
-      <input type="checkbox" id='fixo' name="fixo" value="true"><label for="fixo">Fixar</label>
-      <button onclick="btEnviar()">Enviar</button>
-      <br/>
-      <textarea type="text" id="bodyField" cols="40" rows="5" placeholder="Ctrl/Cmd + Enter" onkeydown="deuCtrlEnter()"></textarea> <!-- A alternativa a cols e rows é: style="width:250px;height:150px;" -->
+      <div class="quickText">      
+        <input type="text" id='headField' size="27" placeholder="Insira a nota aqui (Enter para enviar)" onkeypress="deuEnter()">
+        <input type="checkbox" id='fixo' name="fixo" value="true"><label for="fixo">Fixar</label>
+        <button onclick="btEnviar()">Enviar</button>
+        <br/>
+      </div>
+      <div class="textoLongo">
+        <textarea type="text" id="bodyField" cols="40" rows="5" placeholder="Ctrl/Cmd + Enter" onkeydown="deuCtrlEnter()"></textarea> <!-- A alternativa a cols e rows é: style="width:250px;height:150px;" -->
+      </div>
     </div>
+
     <div class="notas">
       <div class='fixo'></div>
       <div><hr class="rounded"> <!-- Bizarro essa div, ver o que tem de errado -->

@@ -4,8 +4,33 @@ body {
 }
 
 input[type="text"], textarea {
-
   background-color : #d1d1d1; 
+}
+.inserir {
+  position: sticky;
+  top:0;
+  display: inline-block;
+  width:auto;
+  padding: 10px;
+  background-color:rgb(48, 47, 47,0.3);
+  border-radius: 8px;
+}
+.quickText {
+  background-color:rgb(48, 47, 47);
+  border: 8px  rgb(48, 47, 47) solid;
+  border-radius: 8px;
+  height: auto;
+}
+
+textarea {
+  border-radius: 8px;
+  padding: 5px;
+  margin-top: 7px;
+  border: 8px  rgb(48, 47, 47) solid;
+
+}
+input {
+  border-radius: 5px;
 
 }
 hr.rounded {
