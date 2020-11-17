@@ -4,6 +4,7 @@
 // Rodar no Node e o Banco de dados ficar em um JSON que o Node acessa via FTP no servidor. Seria possível ser https://ga.brielrezen.de:3000/appNotas ? E o JSON ser acessível pelo Node via FTP
 // Modularizar (dividir em js)
 // Quando abrir ou depois de uma ação, deixar o campo de texto principal pronto para o input (selecionado)
+// Enter não está mais quebrando linha no body
 // Adicionar cores
 // datas usando o módulo moment do npm
 // converter numero ID para superscript usando o 'npm superscript-number'
@@ -36,8 +37,8 @@ let notas = [
   },
   {
     id: 5,
-    h: 'Assistir Matrix',
-    b: 'Pegar o bluray',
+    h: 'Ajustar esse sem body',
+    b: '',
     pin: false
   },
   {
@@ -109,17 +110,24 @@ const processaBloco = (reg, headline, body, pinned) => { // div de cada item
   const geraCompleto = prop => {
     posts[prop] +=
     `<div class="postit pin${pinned}">
-    <div> <h6>${reg}</h6> <h3>${headline}</h3> </div>
+    <div class="regPost">
+    <h6>${reg}</h6>
+    </div>
+    <div class="headPost">
+    <h3>${headline}</h3>
+    </div>
     </br>
-    <div><p>${body}</p></div>
-    <button onclick="btApagar(${reg})">X</button></div>`;
+    <div class="bodyPost">
+    <p>${body}</p>
+    </div>
+    <button class="botaoPost" onclick="btApagar(${reg})">X</button></div>`;
   }
   const geraParcial = prop => {
     posts[prop] +=
     `<div class="postit pin${pinned}">
     <div> <h6>${reg}</h6> <h3>${headline}${body}</h3> </div>
     </br>
-    <button onclick="btApagar(${reg})">X</button></div>`;  
+    <button class="botaoPost" onclick="btApagar(${reg})">X</button></div>`;  
   }
   if (headline !== '' && body !== '') {
     if (pinned) {

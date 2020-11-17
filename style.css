@@ -54,10 +54,10 @@ hr.rounded {
   border-radius: 1px;
 }
 
-.notas {
+/* .notas { // Será que não precisa mesmo?
   display:flex;
   flex-wrap: wrap;
-}
+} */
 .fixo {
   display:flex;
   flex-wrap: wrap;
@@ -68,16 +68,42 @@ hr.rounded {
 }
 
 .postit {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items:stretch ;
+  background-color: rgb(40, 40, 40);
   border: 1px solid gray;
   border-radius: 10px;
-  height: auto;
   width: 220px;
   margin: 5px;
   padding: 10px;
+  
 }
 .postit h6{
   color:rgba(255, 255, 255, 0.5)
 }
 .pintrue {
   background-color: rgba(255, 217, 0, 0.404)
+}
+
+.regPost {
+  height: 0px;
+  position: relative;
+  bottom: 25px; /* se deve ter jeito de fazer isso melhor? Creio que sim */
+  vertical-align: text-bottom;
+}
+.headPost {
+  height: 40px;
+}
+.bodyPost {
+  line-height: 0%;
+  height: 70px;
+}
+
+.botaoPost {
+  align-self: flex-end;
+  width: 40px;
+}
+.botaoPost button {
 }
