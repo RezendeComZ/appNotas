@@ -17,6 +17,7 @@ input[type="text"], textarea {
   padding: 10px;
   background-color:rgb(87, 87, 79);
   border-radius: 8px;
+  z-index: 1;
 }
 .quickText {
 

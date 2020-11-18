@@ -1,3 +1,4 @@
+// footer
 // Trocar 'alert()' por mensagem com display:none
 // não mostrar a barra se não tiver post fixo
 // Adicionar via link usando parametros do express /:nota/:body?/:fixo? // query params
