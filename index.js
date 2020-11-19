@@ -1,4 +1,6 @@
-// footer
+// footer ?
+// quando postar animar postit ou piscar cor por coisa de 1 segundo
+// 
 // Trocar 'alert()' por mensagem com display:none
 // não mostrar a barra se não tiver post fixo
 // Adicionar via link usando parametros do express /:nota/:body?/:fixo? // query params
@@ -17,6 +19,7 @@
 // senha
 // login
 // cadastro
+
 let notas = [
   {
     id: 1,
