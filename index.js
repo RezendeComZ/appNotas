@@ -177,6 +177,10 @@ const btEnviar = () => {
 
 exibeNotas();
 
+document.onkeyup = e => {
+  if (e.which === 192) mostraInserir();
+}
+
 const mostraInserir = () => {
   document.querySelector('.inserir').style.display = 'block';
   document.getElementById("headField").focus()
