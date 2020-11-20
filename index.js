@@ -1,5 +1,5 @@
-// footer ?
 // quando postar animar postit ou piscar cor por coisa de 1 segundo (ai remover o alert quando posta)
+// Undo
 // Trocar 'alert()' por mensagem com display:none
 // não mostrar a barra se não tiver post fixo
 // Adicionar via link usando parametros do express /:nota/:body?/:fixo? // query params

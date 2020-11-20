@@ -128,3 +128,9 @@ footer a {
   text-decoration: none;
   color: white;
 }
+
+@media (max-width: 800px) {
+  footer {
+    display: none;
+  }
+}
