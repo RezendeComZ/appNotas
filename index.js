@@ -1,5 +1,6 @@
 // quando postar animar postit ou piscar cor por coisa de 1 segundo (ai remover o alert quando posta)
 // Undo
+// opção para mostrar os últimos ou os primeiro antes (inverter ordem de exibição), pelo jeito tem que ser pelo JS, na hora de exibir em exibeNotas()
 // Trocar 'alert()' por mensagem com display:none
 // não mostrar a barra se não tiver post fixo
 // Adicionar via link usando parametros do express /:nota/:body?/:fixo? // query params

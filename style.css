@@ -17,8 +17,10 @@ input[type="text"], textarea {
   padding: 10px;
   background-color:rgb(87, 87, 79);
   border-radius: 8px;
-  z-index: 1;
+  z-index: 2;
+  box-shadow: 0px 0px 2px 1000px rgba(0, 0, 0, 0.5); /* Pensar não funciona mto bem */
 }
+
 .quickText {
 
 }
@@ -55,10 +57,6 @@ hr.rounded {
   border-radius: 1px;
 }
 
-/* .notas { // Será que não precisa mesmo?
-  display:flex;
-  flex-wrap: wrap;
-} */
 .fixo {
   display:flex;
   flex-wrap: wrap;
